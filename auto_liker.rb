@@ -37,7 +37,7 @@ wait_time = 120
 while true
 	browser.buttons(:class => ["dCJp8", "afkep", "_0mzm-"]).each { |heart|
 		if heart.span(:'aria-label' => "Like").exists?
-			heart.click 
+			heart.when_present.click
 			like_count += 1
 			puts "#{like_count} likes done!"
 		end	
