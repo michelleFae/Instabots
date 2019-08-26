@@ -24,48 +24,31 @@ if browser.button(:class => ["aOOlW", "HoLwm"]).exists?
 	browser.button(:class => ["aOOlW", "HoLwm"]).click
 end
 
+#likes given so far
+like_count = 0
 
+#max number of likes you want to give out for the day
+max_likes = 20
 
-like_counter = 0
-
-
+#time in seconds before checking likes again (to save on processing space)
+wait_time = 120
 
 
 while true
-	puts "line 29"
-
-	puts "line 34"
 	browser.buttons(:class => ["dCJp8", "afkep", "_0mzm-"]).each { |heart|
 		if heart.span(:'aria-label' => "Like").exists?
 			heart.click 
-			like_counter += 1
+			like_count += 1
+			puts "#{like_count} likes done!"
 		end	
 	}
-	
-	puts "hi"
-	sleep(5)
-
-
-	# I'm not implementing a scroll in my program.
-
+	# I'm not implementing a scroll in my program ... want more of a live-like app running in the background
 	# 3.times do |i|
 	#  	browser.driver.execute_script("window.scrollBy(0, document.body.scrollHeight)")
 	#  	sleep(2)
 	# end	
-
-
+	break if like_count >= max_likes
+	sleep(wait_time) #time before checking likes again (to save on processing space)
 end
 
-
-
-sleep(330)
-
-# #wanted_links = container.links.map(&:text)
-
-# # Iterate through the links
-# wanted_links.each do |link_text|
-#   container = site.div(class: "column zn__column--idx-1")
-#   container.link(text: link_text).click
-
-#   site.back
-# end
+puts "done all #{max_likes} like for the day! Bye!"
