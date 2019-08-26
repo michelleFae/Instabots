@@ -38,7 +38,10 @@ browser.a(:class, ["-nal3"]).click
 
 
 #need to get each follower name and check if follower name is in following
-#BUG: I CAN'T FIGURE OUT HOW TO ITERATE THROUGH FOLLOWER NAMES... THIS IS NOT WORKING. HELP!
+#ISSUE: Instagram's Terms of Use state "Don't store or cache Instagram login credentials." 
+# My original code would violate this clause in Instagrams terms and conditions if it reads/caches login credientials... will have to use name of user (not a login crediential)
+
+#todo: fix bug of iterating through name of user 
 browser.as(:class => "FPmhX notranslate _0imsa").each {
 	temp += 1
 }

@@ -1,4 +1,4 @@
 # Change these to your login info
 
-$username = "your username here"
-$password = "your password here"
+$username = "_michellefae_"
+$password = "singalong13!"
