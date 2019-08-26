@@ -31,7 +31,7 @@ like_count = 0
 max_likes = 20
 
 #time in seconds before checking likes again (to save on processing space)
-wait_time = 120
+wait_time = 3
 
 
 while true
@@ -49,6 +49,7 @@ while true
 	# end	
 	break if like_count >= max_likes
 	sleep(wait_time) #time before checking likes again (to save on processing space)
+	browser.refresh
 end
 
 puts "done all #{max_likes} like for the day! Bye!"
